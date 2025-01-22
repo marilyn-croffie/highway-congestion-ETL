@@ -6,8 +6,8 @@ from airflow.utils.dates import days_ago
 from airflow.models import Variable  # Import Variable to fetch Airflow variables
 
 # Define file paths as variables 
-TARGET_DIR = Variable.get("target_directory", "/default/output/path")
-STAGING_DIR = Variable.get("staging_directory", "/default/staging/path")
+TARGET_DIR = Variable.get("target", "/default/output/path")
+STAGING_DIR = Variable.get("staging", "/default/staging/path")
 
 # defining dag arguments
 default_args={
