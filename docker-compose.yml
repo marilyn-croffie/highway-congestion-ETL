@@ -65,4 +65,8 @@ services:
       - "8080:8080"
     volumes:
       - ./configs/airflow:/opt/airflow
-    command: ["webserver"]
+    command: >
+    bash -c "airflow db init &&
+             airflow variables set target /path/to/target &&
+             airflow variables set staging /path/to/staging &&
+             airflow webserver"
