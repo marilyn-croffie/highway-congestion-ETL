@@ -22,3 +22,15 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9089
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+
+  airflow:
+    image: apache/airflow:2.7.1
+    container_name: airflow
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__CORE__SQL_ALCHEMY_CONN: mysql+mysqlconnector://root:rootpassword@mysql/mydatabase
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./configs/airflow:/opt/airflow
+    command: ["webserver"]
