@@ -1,6 +1,17 @@
 version: '2'
 
 services:
+    mysql:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: mydatabase
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./configs/mysql:/etc/mysql/conf.d
+      
   zookeeper:
     image: confluentinc/cp-zookeeper:latest
     container_name: zookeeper
