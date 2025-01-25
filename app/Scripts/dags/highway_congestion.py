@@ -31,7 +31,7 @@ dag=DAG(
 # Define the BashOperator tasks
 download_data = BashOperator(
     task_id='download_data',
-    bash_command=f"wget -P {destination_dir} https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0250EN-SkillsNetwork/labs/Final%20Assignment/tolldata.tgz",
+    bash_command=f"wget -P {TARGET_DIR} https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0250EN-SkillsNetwork/labs/Final%20Assignment/tolldata.tgz",
     dag=dag,
 )
 
